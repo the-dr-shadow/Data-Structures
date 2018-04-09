@@ -12,54 +12,50 @@ import java.util.Scanner;
  */
 
 public class BinarySearchTree {
-	
-	Node root; // reference to the root the tree
-	static BinarySearchTree tree;
 
+	static Node root; // reference to the root the tree
 
 	public static void main(String[] args) {
-		tree = new BinarySearchTree();
-		
+		BinarySearchTree tree = new BinarySearchTree();
+
 		String userInput;
 		Scanner sc = new Scanner(System.in);
-		
+
 		boolean isValidInput;
 		do {
-			System.out.println("\nOptions :- Press \n"
-					+ "1 - For inserting a node\n"
-					+ "2 - For deleting a node\n"
-					+ "3 - Printing the tree\n"
-					+ "4 - Exit");
+			System.out.println("\nOptions :- Press \n" + "1 - For inserting a node\n" + "2 - For deleting a node\n"
+					+ "3 - Printing the tree\n" + "4 - Exit");
 			userInput = sc.next();
-			
+
 			isValidInput = Utils.isInputValid(userInput);
-			
-			if(isValidInput) {
+
+			if (isValidInput) {
 				performAction(Integer.valueOf(userInput));
 			}
-			//System.out.print(userInput +"  ,  "+isValidInput);
-			
-		} while(isValidInput);
-		
-	}
+			// System.out.print(userInput +" , "+isValidInput);
 
+		} while (isValidInput);
+
+	}
 
 	private static void performAction(Integer valueOf) {
 		// TODO Auto-generated method stub
 		switch (valueOf) {
 		case 1:
-			tree.root = BSTHelper.insertANode(tree.root);
-			BSTHelper.printTree(tree.root);
+			root = BSTHelper.insertANode(root);
 			break;
 		case 2:
 			BSTHelper.deleteANode();
 			break;
 		case 3:
-			BSTHelper.printTree(tree.root);
+			BSTHelper.printTree(root);
+			break;
+		case 4:
+			BSTHelper.searchKey(root);
 			break;
 		default:
 			break;
 		}
-		
+
 	}
 }

@@ -1,57 +1,44 @@
 import java.util.Scanner;
 
 public class BSTHelper {
-	
+
 	public static Node insertANode(Node root) {
 		// TODO Auto-generated method stub
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the key to be inserted :-");
-		String key = sc.next();
-		int data = Utils.isValidKey(key);
-		if(data != -1) {
-			 root = performNodeInsertion(root,data);
-		} else {
-			showErrorMessage();
-		}
-		return root;
-	}
 
-	private static Node performNodeInsertion(Node root,int key) {
-		// TODO Auto-generated method stub
-		
-		if (root == null) {
-			root = new Node(key);
-			return root;
-		}
-		if (key < root.data) {
-			root.left =  performNodeInsertion(root.left, key);
+		int data = Utils.getInputAndValidate("Enter the key to be inserted :-");
+		if (data != -1) {
+			root = BstApiProvider.performNodeInsertion(root, data);
 		} else {
-			root.right = performNodeInsertion(root.right, key);
+			Utils.showErrorMessage();
 		}
 		return root;
 	}
 
 	public static void deleteANode() {
-		// TODO Auto-generated method stub
-		
+		int data = Utils.getInputAndValidate(null);
 	}
 
 	public static void printTree(Node root) {
 		// TODO Auto-generated method stub
-		if(root == null) {
-			System.out.println("Node is null");
-			return ;
+		if (root != null) {
+			printTree(root.left);
+			System.out.println(root.data + " , ");
+			printTree(root.right);
 		}
-		
-		printTree(root.left);
-		System.out.println(root.data+" , ");
-		printTree(root.right);
 	}
 
-	private static void showErrorMessage() {
-		System.out.println("The key inserted is not correct. PLease select another option to be performed. \n");
+	public static void searchKey(Node root) {
+		// TODO Auto-generated method stub
+		int data = Utils.getInputAndValidate("Enter key to be searched :- ");
+		if (data != -1) {
+			if (BstApiProvider.searchForkey(root, data)) {
+				System.out.println("Key is present in the tree");
+			} else {
+				System.out.println("Key not found");
+			}
+		} else {
+			Utils.showErrorMessage();
+		}
 	}
 
 }
