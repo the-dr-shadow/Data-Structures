@@ -21,8 +21,8 @@ Files and their purpose :-
 4. Node.java ->
       Represents a single node of the Tree.
       
-5. Utils.java
+5. Utils.java ->
       Utility file.
       
-6. Resources.java
+6. Resources.java ->
       Resource file.
