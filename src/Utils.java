@@ -13,8 +13,9 @@ public class Utils {
 		// TODO Auto-generated method stub
 		/*
 		 * 1 -> For insertion 2-> Deletion 3-> Print TRee 4-> Searching in TRee
+		 * 5 -> isValid BST tree
 		 */
-		return 4;
+		return 5;
 	}
 
 	public static int isValidKey(String key) {
@@ -37,5 +38,9 @@ public class Utils {
 
 	public static void showErrorMessage() {
 		System.out.println("The key inserted is not correct. PLease select another option to be performed. \n");
+	}
+	
+	public static void showMessageOnScreen(String message) {
+		System.out.println(message);
 	}
 }

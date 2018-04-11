@@ -14,8 +14,13 @@ public class BSTHelper {
 		return root;
 	}
 
-	public static void deleteANode() {
+	public static void deleteANode(Node root) {
 		int data = Utils.getInputAndValidate(null);
+		if (data != -1) {
+			root = BstApiProvider.performNodeDeletion(root, data);
+		} else {
+			Utils.showErrorMessage();
+		}
 	}
 
 	public static void printTree(Node root) {
@@ -39,6 +44,13 @@ public class BSTHelper {
 		} else {
 			Utils.showErrorMessage();
 		}
+	}
+
+	public static void isValidBST(Node root) {
+		// TODO Auto-generated method stub
+		boolean isValidTree = BstApiProvider.isValidTree(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+
+		Utils.showMessageOnScreen(Resources.getValidTreeString(isValidTree));
 	}
 
 }

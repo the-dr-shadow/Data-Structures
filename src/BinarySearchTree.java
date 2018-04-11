@@ -20,11 +20,14 @@ public class BinarySearchTree {
 
 		String userInput;
 		Scanner sc = new Scanner(System.in);
+		System.out.println("\nOptions :- Press \n" + "1 - For inserting a node\n" + "2 - For deleting a node\n"
+				+ "3 - Printing the tree\n" + "4 - Searching a Key in Tree"
+				+ "5 - checking if a tree is Valid BST or not"
+				+ " 6- Exit");
 
 		boolean isValidInput;
 		do {
-			System.out.println("\nOptions :- Press \n" + "1 - For inserting a node\n" + "2 - For deleting a node\n"
-					+ "3 - Printing the tree\n" + "4 - Exit");
+			
 			userInput = sc.next();
 
 			isValidInput = Utils.isInputValid(userInput);
@@ -45,7 +48,7 @@ public class BinarySearchTree {
 			root = BSTHelper.insertANode(root);
 			break;
 		case 2:
-			BSTHelper.deleteANode();
+			BSTHelper.deleteANode(root);
 			break;
 		case 3:
 			BSTHelper.printTree(root);
@@ -53,6 +56,8 @@ public class BinarySearchTree {
 		case 4:
 			BSTHelper.searchKey(root);
 			break;
+		case 5:
+			BSTHelper.isValidBST(root);
 		default:
 			break;
 		}
