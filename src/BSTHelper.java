@@ -5,7 +5,7 @@ public class BSTHelper {
 	public static Node insertANode(Node root) {
 		// TODO Auto-generated method stub
 
-		int data = Utils.getInputAndValidate("Enter the key to be inserted :-");
+		int data = Utils.getInput(Resources.getString(Resources.INSERT_KEY));
 		if (data != -1) {
 			root = BstApiProvider.performNodeInsertion(root, data);
 		} else {
@@ -15,7 +15,7 @@ public class BSTHelper {
 	}
 
 	public static void deleteANode(Node root) {
-		int data = Utils.getInputAndValidate(null);
+		int data = Utils.getInput(Resources.getString(Resources.DELETE_KEY));
 		if (data != -1) {
 			root = BstApiProvider.performNodeDeletion(root, data);
 		} else {
@@ -27,20 +27,17 @@ public class BSTHelper {
 		// TODO Auto-generated method stub
 		if (root != null) {
 			printTree(root.left);
-			System.out.println(root.data + " , ");
+			Utils.showMessageOnScreen(root.data + " , ");
 			printTree(root.right);
 		}
 	}
 
 	public static void searchKey(Node root) {
 		// TODO Auto-generated method stub
-		int data = Utils.getInputAndValidate("Enter key to be searched :- ");
+		int data = Utils.getInput(Resources.getString(Resources.SEARCH_KEY));
 		if (data != -1) {
-			if (BstApiProvider.searchForkey(root, data)) {
-				System.out.println("Key is present in the tree");
-			} else {
-				System.out.println("Key not found");
-			}
+			boolean isPresent = BstApiProvider.searchForkey(root, data);
+			Utils.showMessageOnScreen(Resources.getKeyPresentInTreeString(isPresent));
 		} else {
 			Utils.showErrorMessage();
 		}
@@ -51,6 +48,15 @@ public class BSTHelper {
 		boolean isValidTree = BstApiProvider.isValidTree(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
 		Utils.showMessageOnScreen(Resources.getValidTreeString(isValidTree));
+	}
+
+	public static void findLowestCommonAncestor(Node root) {
+		// TODO Auto-generated method stub
+		Utils.showMessageOnScreen(Resources.getString(Resources.LOWEST_ANCESTOR_NODES));
+		int key1 = Utils.getInput("");
+		int key2 = Utils.getInput("");
+		int ancestor = BstApiProvider.lowestCommonAncestor(root,key1,key2);
+		Utils.showMessageOnScreen(Resources.getCommonAncestorString(ancestor));
 	}
 
 }

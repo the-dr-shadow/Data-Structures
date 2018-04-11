@@ -64,15 +64,19 @@ public class BstApiProvider {
 
 	public static boolean isValidTree(Node root, int maxValue, int minValue) {
 		// TODO Auto-generated method stub
-		if(root == null) {
+		if (root == null) {
 			return true;
 		}
-		
+
 		if (root.data > maxValue || root.data < minValue) {
 			return false;
 		}
-		
-		return isValidTree(root.left, root.data - 1, minValue) 
-				&& isValidTree(root.right, maxValue, root.data +1);
+
+		return isValidTree(root.left, root.data - 1, minValue) && isValidTree(root.right, maxValue, root.data + 1);
+	}
+
+	public static int lowestCommonAncestor(Node root, int key1, int key2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

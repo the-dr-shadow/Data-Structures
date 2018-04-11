@@ -6,19 +6,18 @@ public class Utils {
 	public static boolean isInputValid(String userInput) {
 		data = Integer.valueOf(userInput);
 		return data <= getPropertiesSupportCount();
-		;
 	}
 
 	private static int getPropertiesSupportCount() {
 		// TODO Auto-generated method stub
 		/*
 		 * 1 -> For insertion 2-> Deletion 3-> Print TRee 4-> Searching in TRee
-		 * 5 -> isValid BST tree
+		 * 5 -> isValid BST tree 6 -> Lowest Common Ancestor
 		 */
-		return 5;
+		return 6;
 	}
 
-	public static int isValidKey(String key) {
+	public static int findKey(String key) {
 		// TODO Auto-generated method stub
 		try {
 			data = Integer.parseInt(key);
@@ -28,18 +27,18 @@ public class Utils {
 		}
 	}
 
-	public static int getInputAndValidate(String message) {
+	public static int getInput(String message) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		System.out.println(message);
 		String key = sc.next();
-		return isValidKey(key);
+		return findKey(key);
 	}
 
 	public static void showErrorMessage() {
-		System.out.println("The key inserted is not correct. PLease select another option to be performed. \n");
+		System.out.println(Resources.getString(Resources.INVALID_INPUT));
 	}
-	
+
 	public static void showMessageOnScreen(String message) {
 		System.out.println(message);
 	}
