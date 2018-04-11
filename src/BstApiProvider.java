@@ -77,6 +77,16 @@ public class BstApiProvider {
 
 	public static int lowestCommonAncestor(Node root, int key1, int key2) {
 		// TODO Auto-generated method stub
-		return 0;
+		if (root == null) {
+			return -1;
+		}
+
+		if (root.data > key1 && root.data > key2) {
+			return lowestCommonAncestor(root.left, key1, key2);
+		} else if (root.data < key1 && root.data < key2) {
+			return lowestCommonAncestor(root.right, key1, key2);
+		} else {
+			return root.data;
+		}
 	}
 }
